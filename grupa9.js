@@ -774,28 +774,137 @@
 
 // console.log(suma);
 
-function reverseNum(num) {
-  num = String(num).split(""); // ['3','2','2','4','3']
+// function reverseNum(num) {
+//   num = String(num).split(""); // ['3','2','2','4','3']
 
-  for (let i = 0; i < num.length / 2; i++) {
-    // [num[i], num[num.length - 1 - i]] = [num[num.length - 1 - i], num[i]];
-    pomVar = num[i];
-    num[i] = num[num.length - 1 - i];
-    num[num.length - 1 - i] = pomVar;
-  }
+//   for (let i = 0; i < num.length / 2; i++) {
+//     // [num[i], num[num.length - 1 - i]] = [num[num.length - 1 - i], num[i]];
+//     pomVar = num[i];
+//     num[i] = num[num.length - 1 - i];
+//     num[num.length - 1 - i] = pomVar;
+//   }
 
-  // num = String(num); // '32243'
-  // res = ""; // 34223
+//   // num = String(num); // '32243'
+//   // res = ""; // 34223
 
-  // for (let i = num.length - 1; i >= 0; i--) {
-  //   res += num[i];
-  // }
+//   // for (let i = num.length - 1; i >= 0; i--) {
+//   //   res += num[i];
+//   // }
 
-  // return Number(res);
-  return Number(num.join(""));
+//   // return Number(res);
+//   a = a * b;
+//   b = a * b;
+//   a = a * b;
+
+//   return Number(num.join(""));
+// }
+
+// x = 32243;
+// outp = reverseNum(x);
+
+// console.log(outp);
+
+// function showUserInfo(uName, uUser, uPass) {
+//   console.log(uName);
+//   console.log(uUser);
+//   console.log(uPass);
+// }
+
+// user = {
+//   username: "dzemil",
+//   password: "sifra123",
+//   name: "Dzemil",
+// };
+
+// showUserInfo(user.name, user.username, user.password);
+
+// function suma2nums(num1, num2) {
+//   res = num1 + num2;
+//   return res;
+// }
+
+// retrunValue = suma2nums(10, 13);
+
+// console.log(retrunValue);
+
+// function evenElements(arr) {
+//   if (arr.length === 0) {
+//     return 0;
+//   }
+//   res = arr.filter((el) => {
+//     if (el % 2 === 0) {
+//       return el;
+//     }
+//   });
+
+//   return res;
+// }
+
+// niz1 = evenElements([2, 3, 4, 5, 4, 3, 2]);
+// niz2 = evenElements([]);
+
+// console.log(niz1);
+// console.log(niz2);
+
+// function sumaArrEl(arg1) {
+//   suma = arg1.reduce((prev, curr) => {
+//     return prev + curr;
+//   }, 0);
+
+//   return suma;
+// }
+
+// rez = sumaArrEl([1, 2, 3, 46, 45, 3, 42, 43]);
+
+// if (rez > 100) {
+//   console.log("suma je veca od 100");
+// } else {
+//   console.log("suma nije veca od 100");
+// }
+
+// function firstLetterToUppercase(word) {
+//   wordArr = word.split(" ");
+
+//   for (let i = 0; i < wordArr.length; i++) {
+//     wordArr[i] = wordArr[i].split("");
+//     // wordArr[i] = ["T"].concat(['h', 'e'])
+//     wordArr[i] = [wordArr[i][0].toUpperCase()].concat(wordArr[i].slice(1));
+//     wordArr[i] = wordArr[i].join("");
+
+//     // the
+//     wordArr[i] = wordArr[i].split("");
+//     // ['t', 'h', 'e']
+//     wordArr[i][0] = wordArr[i][0].toUpperCase();
+//     // ['T', 'h', 'e']
+//     wordArr[i] = wordArr[i].join("");
+//     // The
+//   }
+
+//   return wordArr.join(" ");
+// }
+
+// recenica = "the quick brown fox";
+
+// recenica2 = firstLetterToUppercase(recenica);
+
+// console.log(recenica);
+// console.log(recenica2);
+
+rec = "nekarec";
+// rec = "kapak";
+// ln = rec.length - 1;
+
+// for (let i = 0; i < rec.length / 2; i++) {
+//   if (rec[i] !== rec[ln - i]) {
+//     console.log("Nije planidrom");
+//     break;
+//   }
+// }
+
+isPalidrom = rec.split("").reverse().join("") === rec;
+
+if (isPalidrom) {
+  console.log("jeste");
+} else {
+  console.log("nije");
 }
-
-x = 32243;
-outp = reverseNum(x);
-
-console.log(outp);
