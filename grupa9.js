@@ -890,7 +890,7 @@
 // console.log(recenica);
 // console.log(recenica2);
 
-rec = "nekarec";
+// rec = "nekarec";
 // rec = "kapak";
 // ln = rec.length - 1;
 
@@ -901,10 +901,67 @@ rec = "nekarec";
 //   }
 // }
 
-isPalidrom = rec.split("").reverse().join("") === rec;
+// isPalidrom = rec.split("").reverse().join("") === rec;
 
-if (isPalidrom) {
-  console.log("jeste");
-} else {
-  console.log("nije");
+// if (isPalidrom) {
+//   console.log("jeste");
+// } else {
+//   console.log("nije");
+// }
+
+// prev = 1;
+// curr = 1;
+// suma = 0;
+// while (curr + prev < 4000000) {
+//   // [curr, prev] = [prev + curr, curr];
+//   pomvar = curr + prev;
+//   prev = curr;
+//   curr = pomvar;
+
+//   c;
+//   if (curr % 2 === 0) {
+//     suma += curr;
+//   }
+// }
+
+// console.log(suma);
+
+// function prefectNumber(num) {
+//   divNum = 0;
+
+//   for (let i = 1; i < num; i++) {
+//     if (num % i === 0) {
+//       divNum += i;
+//     }
+//   }
+
+//   if (divNum === num) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+// console.log(prefectNumber(496));
+// console.log(prefectNumber(4));
+
+function apoensCalc(amount, apoens) {
+  i = 0;
+
+  money = [];
+
+  while (amount > 0) {
+    if (amount - apoens[i] >= 0) {
+      amount -= apoens[i];
+      money.push(apoens[i]);
+    } else {
+      i++;
+    }
+  }
+  return money;
 }
+
+arg1 = [25, 10, 5, 2, 1];
+arg2 = 174;
+
+console.log(apoensCalc(arg2, arg1));
