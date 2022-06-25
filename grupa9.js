@@ -945,23 +945,249 @@
 // console.log(prefectNumber(496));
 // console.log(prefectNumber(4));
 
-function apoensCalc(amount, apoens) {
-  i = 0;
+// function apoensCalc(amount, apoens) {
+//   i = 0;
 
-  money = [];
+//   money = [];
 
-  while (amount > 0) {
-    if (amount - apoens[i] >= 0) {
-      amount -= apoens[i];
-      money.push(apoens[i]);
-    } else {
-      i++;
-    }
-  }
-  return money;
-}
+//   while (amount > 0) {
+//     if (amount - apoens[i] >= 0) {
+//       amount -= apoens[i];
+//       money.push(apoens[i]);
+//     } else {
+//       i++;
+//     }
+//   }
+//   return money;
+// }
 
-arg1 = [25, 10, 5, 2, 1];
-arg2 = 174;
+// arg1 = [25, 10, 5, 2, 1];
+// arg2 = 174;
 
-console.log(apoensCalc(arg2, arg1));
+// console.log(apoensCalc(arg2, arg1));
+
+// class Car {
+//   constructor(n, age) {
+//     this.carname = n;
+//     this.age = age;
+//   }
+
+//   printName() {
+//     console.log(n);
+//   }
+
+//   countAge(year) {
+//     console.log(year - this.age);
+//   }
+// }
+
+// c = new Car("ad", 1123);
+
+// c.printName();
+
+// var1 = {
+//   carName: "audi",
+//   age: 22,
+//   printName: function () {
+//     console.log(this.carName);
+//   },
+// };
+
+// var1.printName();
+
+// function mojaFunc() {
+//   var1 = 10;
+
+//   function drugaFunc() {
+//     var2 = 20;
+//     console.log(var1 + var2);
+//   }
+
+//   return drugaFunc;
+// }
+
+// function mojaFunc() {
+//   console.log("nest");
+// }
+// //0293urq = 0293urq
+// var1 = mojaFunc;
+
+// var1();
+
+// let a = 99;
+
+// if (true) {
+//   let a = 10 + a;
+//   console.log(a);
+// }
+
+// console.log(a);
+
+// function mojaFunc() {
+//   if (true) {
+//     var a = 10;
+//     console.log(a);
+//   }
+//   console.log(a);
+// }
+
+// mojaFunc();
+
+// var ad = "ads";
+
+// for (let i = 0; i < 5; i++) {
+//   setTimeout(() => {
+//     console.log(i);
+//   }, 0);
+// }
+
+// function f1() {
+//   const a = 10;
+//   if (true) {
+//   }
+//   console.log(a);
+// }
+
+// function f2() {
+//   console.log(a);
+// }
+
+// f1();
+// f2();
+
+// function third() {
+//   console.log("tri!!");
+// }
+
+// function second() {
+//   console.log("dva");
+//   third();
+// }
+
+// function first() {
+//   console.log("jedan");
+//   second();
+// }
+
+// first();
+
+// console.log(1);
+// console.log(2);
+
+// setTimeout(() => {
+//   console.log(3);
+// }, 1005);
+
+// console.log(4);
+
+// setTimeout(() => {
+//   console.log(5);
+// }, 1000);
+
+//   for (let i = 0; i < 900000000; i++) {}
+
+// drugiPosao = () => {
+//   console.log("drugi posao!!!");
+// };
+
+// // treciPosao = () => {
+// //   console.log("treci posao!!!");
+// // };
+
+// function glavniPosao(clb) {
+//   console.log("pocetak");
+//   for (let i = 0; i < 909000000; i++) {}
+//   console.log("kraj");
+//   clb();
+// }
+
+// glavniPosao(drugiPosao);
+
+// glavniPosao(() => {
+//   console.log("treci posao!!!");
+// });
+
+// clb = () => {
+//   console.log("nestoo");
+// };
+
+// setTimeout(clb, 1000);
+
+// setTimeout(() => {
+//   console.log("nestoo");
+// }, 1000);
+
+// let arr1 = [1, 4, 9, 16];
+
+// mojaMap = (arr, clb) => {
+//   resArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     newEl = clb(arr[i]);
+//     resArr.push(newEl);
+//   }
+
+//   return resArr;
+// };
+
+// arr2 = mojaMap(arr1, (el) => {
+//   return el * 2;
+// });
+
+// arr2 = arr1.map((el) => {
+//   return el * 2;
+// });
+
+// console.log(arr1);
+// console.log(arr2);
+
+// posao = new Promise((resolve, reject) => {
+//   let status = 201;
+//   for (let i = 0; i < 990000000; i++) {}
+//   if (status === 200) {
+//     resolve("neka vrednost");
+//   } else {
+//     reject("NEKA ERROR");
+//   }
+// });
+
+// posao
+//   .then((res) => {
+//     console.log("Uspesno", res);
+//   })
+//   .catch((err) => {
+//     console.log("eroor", err);
+//   });
+
+fetch("https://catfact.ninja/facts")
+  .then(async (result) => {
+    res = await result.json();
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log(
+      err,
+      "============NEUSPESNO FETCH-anje========================"
+    );
+  });
+
+// prom = new Promise((res, rej) => {
+//   res();
+// });
+
+// setTimeout(() => {
+//   setTimeout(() => {
+//     console.log("B");
+//   }, 0);
+//   console.log("A");
+// }, 200);
+
+// prom.then(() => {
+//   setTimeout(() => {
+//     console.log("E");
+//   }, 0);
+//   console.log("C");
+// });
+
+// prom.then(() => {
+//   console.log("D");
+// });
