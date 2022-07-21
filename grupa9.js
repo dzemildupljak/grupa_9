@@ -1158,17 +1158,17 @@
 //     console.log("eroor", err);
 //   });
 
-fetch("https://catfact.ninja/facts")
-  .then(async (result) => {
-    res = await result.json();
-    console.log(res);
-  })
-  .catch((err) => {
-    console.log(
-      err,
-      "============NEUSPESNO FETCH-anje========================"
-    );
-  });
+// fetch("https://catfact.ninja/facts")
+//   .then(async (result) => {
+//     res = await result.json();
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(
+//       err,
+//       "============NEUSPESNO FETCH-anje========================"
+//     );
+//   });
 
 // prom = new Promise((res, rej) => {
 //   res();
@@ -1191,3 +1191,47 @@ fetch("https://catfact.ninja/facts")
 // prom.then(() => {
 //   console.log("D");
 // });
+
+// function func3() {
+//   console.log("func3");
+// }
+
+// function func2() {
+//   console.log("func2");
+//   func3();
+// }
+
+// function func1() {
+//   console.log("func1");
+//   func2();
+// }
+
+// func1();
+
+// console.log(1);
+// console.log(2);
+// setTimeout(function nekiPosao() {
+//   console.log(3);
+// }, 1000);
+
+// console.log(4);
+
+// function drugiPosao() {
+//   console.log("SLEDECI POSAO");
+// }
+
+// function glavniPosao(arg1) {
+//   console.log("pocinje posao");
+//   for (let i = 0; i < 900000000; i++) {}
+//   console.log("zavrsen posao");
+//   arg1();
+// }
+
+// glavniPosao(drugiPosao);
+// glavniPosao(() => {
+//   console.log("treci posao");
+// });
+moajF = () => {
+  console.log("posao!!");
+};
+setTimeout(moajF, 100);

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Unesite username" onchange="setUsername(this)">
+    <button onclick="getGituser()">Search user</button>
+    <div class="card" id="card">
+        <img src="" alt="" id="profImg" width="100" height="100">
+        <h1 id="userName"></h1>
+        <h3 id="userUsername"></h3>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        let gitUsername = ""
+        const getGituser = async () => {
+            const response = await axios.get(`https://api.github.com/users/${gitUsername}`)
+            const gituser = response.data
+            console.log(gituser)
+            createCard(gituser)
+        }
+
+
+        function createCard(obj) {
+            document.getElementById('profImg').src = obj.avatar_url
+            document.getElementById('userName').innerText = obj.login
+
+        }
+        function setUsername(inp) {
+            console.log(inp.value)
+            gitUsername = inp.value
+        }
+    </script>
+</body>
+
+</html>
