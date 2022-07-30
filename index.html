@@ -2,64 +2,79 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
 </head>
 
 <body>
-
-    <div class="card-container" id="card-container">
-
-    </div>
-    <div class="pagination" id="pagination">
-    </div>
-
-
+    <div class="card-container" id="card-container"></div>
+    <div class="pagination" id="pagination"></div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        let catData
-        let currPage = 1
+        let catData;
+        let currPage = "https://catfact.ninja/facts?page=1";
 
-            (async function () {
-                res = await axios.get(`https://catfact.ninja/facts?page=${currPage}&limit=20`)
-                catData = res.data
-                console.log(catData)
+        (async function () {
+            catData = await getData(currPage)
+            fillContent()
+        })();
 
-                catData.data.forEach(cat => {
-                    createCard(cat)
-                });
+        function fillContent() {
+            document.getElementById('card-container').innerHTML = ""
 
-                catData.links.forEach(l => {
-                    createPageNum(l)
-                })
-            })()
+            catData.data.forEach((cat) => {
+                createCard(cat);
+            });
+
+            document.getElementById('pagination').innerHTML = ""
+            catData.links.forEach((link) => {
+                createPageNum(link);
+            });
+        }
+
+
+        async function getData(page) {
+            const res = await axios.get(
+                `${page}&limit=20`
+            );
+            console.log(res.data)
+            return res.data
+        }
 
         function createCard(obj) {
-            card = document.createElement('div')
-            card.innerHTML = obj.fact
-            card.classList.add('cat-card')
+            const card = document.createElement("div");
+            card.innerHTML = obj.fact;
+            card.classList.add("cat-card");
 
-            document.getElementById('card-container').appendChild(card)
+            document.getElementById("card-container").appendChild(card);
         }
 
         function createPageNum(pageObj) {
-            page = document.createElement('span')
-            page.innerHTML = pageObj.label
+            const page = document.createElement("span");
+            page.innerHTML = pageObj.label;
 
             if (!pageObj.url) {
-                page.disabled = true
-                page.style.color = 'gray'
+                page.disabled = true;
+                page.style.color = "gray";
+            } else {
+                page.onclick = async function () {
+                    currPage = pageObj.url
+                    catData = await getData(pageObj.url)
+                    fillContent()
+                }
             }
             if (pageObj.active) {
-                page.style.color = 'green'
+                page.style.color = "red";
             }
 
-            document.getElementById('pagination').append(page)
+
+            document.getElementById("pagination").append(page);
         }
+
 
     </script>
 </body>
