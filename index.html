@@ -19,18 +19,24 @@
         let currPage = "https://catfact.ninja/facts?page=1";
 
         (async function () {
+            // Initial fetch of data with currPage page=1
             catData = await getData(currPage)
+
+            // Empty both divs and append with new fetched data (catData)
             fillContent()
         })();
 
         function fillContent() {
+            // empty div 
             document.getElementById('card-container').innerHTML = ""
-
+            // append new data
             catData.data.forEach((cat) => {
                 createCard(cat);
             });
 
+            // empty div 
             document.getElementById('pagination').innerHTML = ""
+            // append new data
             catData.links.forEach((link) => {
                 createPageNum(link);
             });
@@ -38,6 +44,7 @@
 
 
         async function getData(page) {
+            // simple fetch 
             const res = await axios.get(
                 `${page}&limit=20`
             );
@@ -63,7 +70,11 @@
             } else {
                 page.onclick = async function () {
                     currPage = pageObj.url
+
+                    // Initial fetch of data with currPage page=pageObj.url
                     catData = await getData(pageObj.url)
+
+                    // Empty both divs and append with new fetched data (catData)
                     fillContent()
                 }
             }
